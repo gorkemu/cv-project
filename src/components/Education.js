@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 
 class Education extends Component {
-    constructor(props) {
-        super(props);
-    }
-
+    
     render() {
         const { handleEducationInput, school, titleOfStudy, graduationDate, isEditing } = this.props;
         return (
@@ -32,7 +29,7 @@ class Education extends Component {
                     <h3>Graduation Date: </h3>
                     <div>
                         {isEditing
-                            ? <input name="graduationDate" onChange={handleEducationInput} value={graduationDate}></input>
+                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} value={graduationDate}></input>
                             : <p>{graduationDate}</p>
                         }
                     </div>
