@@ -6,7 +6,7 @@ class Education extends Component {
     }
 
     render() {
-        const {handleEducationInput,school,titleOfStudy,graduationDate, isEditing } = this.props;
+        const { handleEducationInput, school, titleOfStudy, graduationDate, isEditing } = this.props;
         return (
             <section>
                 <h2>Education</h2>
