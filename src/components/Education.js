@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class Education extends Component {
-    
     render() {
         const { handleEducationInput, school, titleOfStudy, graduationDate, isEditing } = this.props;
         return (

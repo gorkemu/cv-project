@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Personal extends Component {
-    constructor(props) {
-        super(props);
-    }
-    
     render() {
         const { handlePersonalInput, name, email, phoneNumber, address, isEditing } = this.props;
 
