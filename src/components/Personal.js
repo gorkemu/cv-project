@@ -6,7 +6,7 @@ class Personal extends Component {
     }
     
     render() {
-        const isEditing = this.props.isEditing;
+        const { handlePersonalInput, name, email, phoneNumber, address, isEditing } = this.props;
 
         return (
             <section>
@@ -14,16 +14,16 @@ class Personal extends Component {
                 <div className="block">
                     <h3>Name: </h3>
                     {isEditing
-                        ? <input name="name" onChange={this.props.handlePersonalInput} value={this.props.name}></input>
-                        : <p>{this.props.name}</p>
+                        ? <input name="name" onChange={handlePersonalInput} value={name}></input>
+                        : <p>{name}</p>
                     }
                 </div>
                 <div className="block">
                     <h3>Email: </h3>
                     <div>
                         {isEditing
-                            ? <input name="email" onChange={this.props.handlePersonalInput} value={this.props.email}></input>
-                            : <p>{this.props.email}</p>
+                            ? <input name="email" onChange={handlePersonalInput} value={email}></input>
+                            : <p>{email}</p>
                         }
                     </div>
                 </div>
@@ -31,8 +31,8 @@ class Personal extends Component {
                     <h3>Phone Number: </h3>
                     <div>
                         {isEditing
-                            ? <input name="phoneNumber" onChange={this.props.handlePersonalInput} value={this.props.phoneNumber}></input>
-                            : <p>{this.props.phoneNumber}</p>
+                            ? <input name="phoneNumber" onChange={handlePersonalInput} value={phoneNumber}></input>
+                            : <p>{phoneNumber}</p>
                         }
                     </div>
                 </div>
@@ -40,8 +40,8 @@ class Personal extends Component {
                     <h3>Address: </h3>
                     <div>
                         {isEditing
-                            ? <input name="address" onChange={this.props.handlePersonalInput} value={this.props.address}></input>
-                            : <p>{this.props.address}</p>
+                            ? <input name="address" onChange={handlePersonalInput} value={address}></input>
+                            : <p>{address}</p>
                         }
                     </div>
                 </div>
