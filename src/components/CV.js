@@ -14,7 +14,6 @@ class CV extends Component {
         this.onEdit = this.onEdit.bind(this);
         this.state = {
             personalInfo: {
-                id: uniqid(),
                 name: '',
                 email: '',
                 phoneNumber: ''
