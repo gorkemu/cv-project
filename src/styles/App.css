@@ -1,12 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root {
     --navy: #00425a;
-    --teal: #1f8a70;
     --blue: #48a5e2;
     --black: #282c34;
-    --green: #4caf50;
-    --greenish: #45a049;
 }
 
 *,
@@ -21,7 +18,7 @@ html,
 body {
     width: 100vw;
     height: 100vh;
-    font-family: "Lato", sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .App {
@@ -53,6 +50,7 @@ section {
     padding: 10px;
     border-radius: 4px;
 }
+
 .block {
     display: flex;
     justify-content: space-between;
@@ -73,7 +71,6 @@ input {
     width: 300px;
     padding: 5px;
     border: 1px solid var(--blue);
-
 }
 
 button {
