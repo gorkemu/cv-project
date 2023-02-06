@@ -16,7 +16,8 @@ class CV extends Component {
             personalInfo: {
                 name: '',
                 email: '',
-                phoneNumber: ''
+                phoneNumber: '',
+                address: ''
             },
             education: [
                 {
@@ -94,6 +95,7 @@ class CV extends Component {
                     name={this.state.personalInfo.name}
                     email={this.state.personalInfo.email}
                     phoneNumber={this.state.personalInfo.phoneNumber}
+                    address={this.state.personalInfo.address}
                     isEditing={this.state.isEditing} />
                 <Education
                     handleEducationInput={this.handleEducationInput}

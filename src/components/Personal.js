@@ -36,6 +36,15 @@ class Personal extends Component {
                         }
                     </div>
                 </div>
+                <div className="block">
+                    <h3>Address: </h3>
+                    <div>
+                        {isEditing
+                            ? <input name="address" onChange={this.props.handlePersonalInput} value={this.props.address}></input>
+                            : <p>{this.props.address}</p>
+                        }
+                    </div>
+                </div>
             </section>  
         );
     }
