@@ -86,30 +86,30 @@ class CV extends Component {
     }
 
     render() {
-        const isEditing = this.state.isEditing;
+        const { personalInfo, education, experience, isEditing } = this.state;
 
         return (
             <div className="CV">
                 <Personal
                     handlePersonalInput={this.handlePersonalInput}
-                    name={this.state.personalInfo.name}
-                    email={this.state.personalInfo.email}
-                    phoneNumber={this.state.personalInfo.phoneNumber}
-                    address={this.state.personalInfo.address}
-                    isEditing={this.state.isEditing} />
+                    name={personalInfo.name}
+                    email={personalInfo.email}
+                    phoneNumber={personalInfo.phoneNumber}
+                    address={personalInfo.address}
+                    isEditing={isEditing} />
                 <Education
                     handleEducationInput={this.handleEducationInput}
-                    school={this.state.education.school}
-                    titleOfStudy={this.state.education.titleOfStudy}
-                    graduationDate={this.state.education.graduationDate}
-                    isEditing={this.state.isEditing} />
+                    school={education.school}
+                    titleOfStudy={education.titleOfStudy}
+                    graduationDate={education.graduationDate}
+                    isEditing={isEditing} />
                 <Experience
                     handleExperienceInput={this.handleExperienceInput}
-                    company={this.state.experience.company}
-                    position={this.state.experience.position}
-                    from={this.state.experience.from}
-                    tp={this.state.experience.to}
-                    isEditing={this.state.isEditing} />
+                    company={experience.company}
+                    position={experience.position}
+                    from={experience.from}
+                    tp={experience.to}
+                    isEditing={isEditing} />
                 <div>
                     {isEditing
                         ? <button onClick={this.onPreview}>Preview</button>
