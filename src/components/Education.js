@@ -6,7 +6,7 @@ class Education extends Component {
     }
 
     render() {
-        const isEditing = this.props.isEditing;
+        const {handleEducationInput,school,titleOfStudy,graduationDate, isEditing } = this.props;
         return (
             <section>
                 <h2>Education</h2>
@@ -14,8 +14,8 @@ class Education extends Component {
                     <h3>School Name: </h3>
                     <div>
                         {isEditing
-                            ? <input type="text" name="school" onChange={this.props.handleEducationInput} value={this.props.school}></input>
-                            : <p>{this.props.school}</p>
+                            ? <input type="text" name="school" onChange={handleEducationInput} value={school}></input>
+                            : <p>{school}</p>
                         }
                     </div>
                 </div>
@@ -23,8 +23,8 @@ class Education extends Component {
                     <h3>Title of Study: </h3>
                     <div>
                         {isEditing
-                            ? <input type="text" name="titleOfStudy" onChange={this.props.handleEducationInput} value={this.props.titleOfStudy}></input>
-                            : <p>{this.props.titleOfStudy}</p>
+                            ? <input type="text" name="titleOfStudy" onChange={handleEducationInput} value={titleOfStudy}></input>
+                            : <p>{titleOfStudy}</p>
                         }
                     </div>
                 </div>
@@ -32,8 +32,8 @@ class Education extends Component {
                     <h3>Graduation Date: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="graduationDate" onChange={this.props.handleEducationInput} value={this.props.graduationDate}></input>
-                            : <p>{this.props.graduationDate}</p>
+                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} value={graduationDate}></input>
+                            : <p>{graduationDate}</p>
                         }
                     </div>
                 </div>
