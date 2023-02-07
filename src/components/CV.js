@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Personal from "./Personal";
-import Education from "./Education";
-import Experience from "./Experience";
+import EducationList from "./EducationList";
+import ExperienceList from "./ExperienceList";
 import uniqid from 'uniqid';
 
 class CV extends Component {
@@ -19,23 +19,19 @@ class CV extends Component {
                 phoneNumber: '',
                 address: ''
             },
-            education: [
-                {
+            education: {
                     id: uniqid(),
                     school: '',
                     titleOfStudy: '',
                     graduationDate: ''
-                }
-            ],
-            experience: [
-                {
+            },
+            experience: {
                     id: uniqid(),
                     company: '',
                     position: '',
                     from: '',
                     to: ''
-                }
-            ],
+            },
             isEditing: true
         }
     }
@@ -86,29 +82,24 @@ class CV extends Component {
     }
 
     render() {
-        const { personalInfo, education, experience, isEditing } = this.state;
+        const { personalInfo: { name, email, phoneNumber, address }, education, experience, isEditing } = this.state;
 
         return (
             <div className="CV">
                 <Personal
                     handlePersonalInput={this.handlePersonalInput}
-                    name={personalInfo.name}
-                    email={personalInfo.email}
-                    phoneNumber={personalInfo.phoneNumber}
-                    address={personalInfo.address}
+                    name={name}
+                    email={email}
+                    phoneNumber={phoneNumber}
+                    address={address}
                     isEditing={isEditing} />
-                <Education
+                <EducationList
                     handleEducationInput={this.handleEducationInput}
-                    school={education.school}
-                    titleOfStudy={education.titleOfStudy}
-                    graduationDate={education.graduationDate}
+                    education={education}
                     isEditing={isEditing} />
-                <Experience
+                <ExperienceList
                     handleExperienceInput={this.handleExperienceInput}
-                    company={experience.company}
-                    position={experience.position}
-                    from={experience.from}
-                    tp={experience.to}
+                    experience={experience}
                     isEditing={isEditing} />
                 <div>
                     {isEditing

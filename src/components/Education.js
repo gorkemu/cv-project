@@ -2,16 +2,15 @@ import React, { Component } from "react";
 
 class Education extends Component {
     render() {
-        const { handleEducationInput, school, titleOfStudy, graduationDate, isEditing } = this.props;
+        const { handleEducationInput, education, isEditing } = this.props;
         return (
             <section>
-                <h2>Education</h2>
                 <div className="block">
                     <h3>School Name: </h3>
                     <div>
                         {isEditing
-                            ? <input name="school" onChange={handleEducationInput} value={school}></input>
-                            : <p>{school}</p>
+                            ? <input name="school" onChange={handleEducationInput} ></input>
+                            : <p>{education.school}</p>
                         }
                     </div>
                 </div>
@@ -19,8 +18,8 @@ class Education extends Component {
                     <h3>Title of Study: </h3>
                     <div>
                         {isEditing
-                            ? <input name="titleOfStudy" onChange={handleEducationInput} value={titleOfStudy}></input>
-                            : <p>{titleOfStudy}</p>
+                            ? <input name="titleOfStudy" onChange={handleEducationInput} ></input>
+                            : <p>{education.titleOfStudy}</p>
                         }
                     </div>
                 </div>
@@ -28,8 +27,8 @@ class Education extends Component {
                     <h3>Graduation Date: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} value={graduationDate}></input>
-                            : <p>{graduationDate}</p>
+                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} ></input>
+                            : <p>{education.graduationDate}</p>
                         }
                     </div>
                 </div>
