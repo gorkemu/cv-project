@@ -9,7 +9,7 @@ class Experience extends Component {
                     <h3>Company: </h3>
                     <div>
                         {isEditing
-                            ? <input name="company" onChange={handleExperienceInput} ></input>
+                            ? <input name="company" onChange={handleExperienceInput} value={experience.company}></input>
                             : <p>{experience.company}</p>
                         }
                     </div>
@@ -18,7 +18,7 @@ class Experience extends Component {
                     <h3>Position: </h3>
                     <div>
                         {isEditing
-                            ? <input name="position" onChange={handleExperienceInput} ></input>
+                            ? <input name="position" onChange={handleExperienceInput} value={experience.position}></input>
                             : <p>{experience.position}</p>
                         }
                     </div>
@@ -27,7 +27,7 @@ class Experience extends Component {
                     <h3>From: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="from" onChange={handleExperienceInput} ></input>
+                            ? <input type="date" name="from" onChange={handleExperienceInput} value={experience.from}></input>
                             : <p>{experience.from}</p>
                         }
                     </div>
@@ -36,7 +36,7 @@ class Experience extends Component {
                     <h3>To: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="to" onChange={handleExperienceInput} ></input>
+                            ? <input type="date" name="to" onChange={handleExperienceInput} value={experience.to}></input>
                             : <p>{experience.to}</p>
                         }
                     </div>

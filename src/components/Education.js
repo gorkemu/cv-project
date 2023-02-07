@@ -9,7 +9,7 @@ class Education extends Component {
                     <h3>School Name: </h3>
                     <div>
                         {isEditing
-                            ? <input name="school" onChange={handleEducationInput} ></input>
+                            ? <input name="school" onChange={handleEducationInput} value={education.school} ></input>
                             : <p>{education.school}</p>
                         }
                     </div>
@@ -18,7 +18,7 @@ class Education extends Component {
                     <h3>Title of Study: </h3>
                     <div>
                         {isEditing
-                            ? <input name="titleOfStudy" onChange={handleEducationInput} ></input>
+                            ? <input name="titleOfStudy" onChange={handleEducationInput} value={education.titleOfStudy} ></input>
                             : <p>{education.titleOfStudy}</p>
                         }
                     </div>
@@ -27,7 +27,7 @@ class Education extends Component {
                     <h3>Graduation Date: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} ></input>
+                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} value={education.graduationDate}></input>
                             : <p>{education.graduationDate}</p>
                         }
                     </div>
