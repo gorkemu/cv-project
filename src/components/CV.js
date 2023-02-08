@@ -19,19 +19,23 @@ class CV extends Component {
                 phoneNumber: '',
                 address: ''
             },
-            education: {
+            education: [
+                {
                     id: uniqid(),
                     school: '',
                     titleOfStudy: '',
                     graduationDate: ''
-            },
-            experience: {
+                },
+            ],
+            experience: [
+                {
                     id: uniqid(),
                     company: '',
                     position: '',
                     from: '',
                     to: ''
-            },
+                },
+            ],
             isEditing: true
         }
     }
@@ -47,26 +51,31 @@ class CV extends Component {
         }))
     }
 
-    handleEducationInput(e) {
-        const { name, value } = e.target;
-        this.setState((prevState) => ({
-            ...prevState,
-            education: {
-                ...prevState.education,
-                [name]: value
-            }
-        }))
+    handleEducationInput (e, id) {
+        const { name, value } = e.target
+
+        this.setState((prevState) => {
+            const newEducation = prevState.education.map((educationItem) => {
+                if (educationItem.id === id) {
+                    return { ...educationItem, [name]: value }
+                }
+                return educationItem
+            })
+            return { ...prevState, education: [...newEducation] }
+        })
     }
 
-    handleExperienceInput(e) {
+    handleExperienceInput(e, id) {
         const { name, value } = e.target;
-        this.setState((prevState) => ({
-            ...prevState,
-            experience: {
-                ...prevState.experience,
-                [name]: value
-            }
-        }))
+        this.setState((prevState) => {
+            const newExperience = prevState.experience.map((experienceItem) => {
+                if (experienceItem.id === id) {
+                    return { ...experienceItem, [name]: value }
+                }
+                return experienceItem
+            })
+            return { ...prevState, experience: [...newExperience] }    
+        })
     }
 
     onPreview() {
