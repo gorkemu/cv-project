@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 class Experience extends Component {
     render() {
-        const { handleExperienceInput, experience, isEditing } = this.props;
+        const { handleExperienceInput, experienceItem, isEditing, id } = this.props;
         return (
             <section>
                 <div className="block">
                     <h3>Company: </h3>
                     <div>
                         {isEditing
-                            ? <input name="company" onChange={handleExperienceInput} value={experience.company}></input>
-                            : <p>{experience.company}</p>
+                            ? <input name="company" onChange={(e) => handleExperienceInput(e, id)} value={experienceItem.company}></input>
+                            : <p>{experienceItem.company}</p>
                         }
                     </div>
                 </div>
@@ -18,8 +18,8 @@ class Experience extends Component {
                     <h3>Position: </h3>
                     <div>
                         {isEditing
-                            ? <input name="position" onChange={handleExperienceInput} value={experience.position}></input>
-                            : <p>{experience.position}</p>
+                            ? <input name="position" onChange={(e) => handleExperienceInput(e, id)} value={experienceItem.position}></input>
+                            : <p>{experienceItem.position}</p>
                         }
                     </div>
                 </div>
@@ -27,8 +27,8 @@ class Experience extends Component {
                     <h3>From: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="from" onChange={handleExperienceInput} value={experience.from}></input>
-                            : <p>{experience.from}</p>
+                            ? <input type="date" name="from" onChange={(e) => handleExperienceInput(e, id)} value={experienceItem.from}></input>
+                            : <p>{experienceItem.from}</p>
                         }
                     </div>
                 </div>
@@ -36,8 +36,8 @@ class Experience extends Component {
                     <h3>To: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="to" onChange={handleExperienceInput} value={experience.to}></input>
-                            : <p>{experience.to}</p>
+                            ? <input type="date" name="to" onChange={(e) => handleExperienceInput(e, id)} value={experienceItem.to}></input>
+                            : <p>{experienceItem.to}</p>
                         }
                     </div>
                 </div>
