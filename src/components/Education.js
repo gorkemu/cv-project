@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 class Education extends Component {
     render() {
-        const { handleEducationInput, education, isEditing } = this.props;
+        const { handleEducationInput, educationItem, isEditing, id } = this.props;
         return (
             <section>
                 <div className="block">
                     <h3>School Name: </h3>
                     <div>
                         {isEditing
-                            ? <input name="school" onChange={handleEducationInput} value={education.school} ></input>
-                            : <p>{education.school}</p>
+                            ? <input name="school" onChange={(e) => handleEducationInput(e,id)} value={educationItem.school} ></input>
+                            : <p>{educationItem.school}</p>
                         }
                     </div>
                 </div>
@@ -18,8 +18,8 @@ class Education extends Component {
                     <h3>Title of Study: </h3>
                     <div>
                         {isEditing
-                            ? <input name="titleOfStudy" onChange={handleEducationInput} value={education.titleOfStudy} ></input>
-                            : <p>{education.titleOfStudy}</p>
+                            ? <input name="titleOfStudy" onChange={(e) => handleEducationInput(e, id)} value={educationItem.titleOfStudy} ></input>
+                            : <p>{educationItem.titleOfStudy}</p>
                         }
                     </div>
                 </div>
@@ -27,8 +27,8 @@ class Education extends Component {
                     <h3>Graduation Date: </h3>
                     <div>
                         {isEditing
-                            ? <input type="date" name="graduationDate" onChange={handleEducationInput} value={education.graduationDate}></input>
-                            : <p>{education.graduationDate}</p>
+                            ? <input type="date" name="graduationDate" onChange={(e) => handleEducationInput(e, id)} value={educationItem.graduationDate}></input>
+                            : <p>{educationItem.graduationDate}</p>
                         }
                     </div>
                 </div>
