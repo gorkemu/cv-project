@@ -41,7 +41,8 @@ class Experience extends Component {
                         }
                     </div>
                 </div>
-                <button onClick={() => onDeleteExperience(id)}>Delete Experience</button>
+                {isEditing &&
+                        <button className="delete-btn" onClick={() => onDeleteExperience(id)}>Delete Experience</button>}
             </section>
         )
     }

@@ -32,7 +32,8 @@ class Education extends Component {
                         }
                     </div>
                 </div>
-                <button onClick={() => onDeleteEducation(id)}>Delete Education</button>
+                {isEditing && 
+                    <button className="delete-btn" onClick={() => onDeleteEducation(id)}>Delete Education</button>}
             </section>
         )
     }
