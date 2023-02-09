@@ -12,6 +12,8 @@ class CV extends Component {
         this.handleExperienceInput = this.handleExperienceInput.bind(this);
         this.onPreview = this.onPreview.bind(this);
         this.onEdit = this.onEdit.bind(this);
+        this.addEducation = this.addEducation.bind(this);
+        this.addExperience = this.addExperience.bind(this);
         this.state = {
             personalInfo: {
                 name: '',
@@ -78,6 +80,37 @@ class CV extends Component {
         })
     }
 
+    addEducation() {
+        this.setState((prevState) => ({
+            ...prevState,
+            education: [
+                ...prevState.experience,
+                {
+                    id: uniqid(),
+                    school: '',
+                    titleOfStudy: '',
+                    graduationDate: ''
+                },
+            ],
+        }))
+    }
+
+    addExperience() {
+        this.setState((prevState) => ({
+            ...prevState,
+            experience: [
+                ...prevState.experience,
+                {
+                    id: uniqid(),
+                    company: '',
+                    position: '',
+                    from: '',
+                    to: ''
+                },
+            ],
+        }))
+    }
+
     onPreview() {
         this.setState({
             isEditing: false
@@ -105,11 +138,13 @@ class CV extends Component {
                 <EducationList
                     handleEducationInput={this.handleEducationInput}
                     education={education}
-                    isEditing={isEditing} />
+                    isEditing={isEditing}
+                    onAddEducation={this.addEducation} />
                 <ExperienceList
                     handleExperienceInput={this.handleExperienceInput}
                     experience={experience}
-                    isEditing={isEditing} />
+                    isEditing={isEditing}
+                    onAddExperience={this.addExperience} />
                 <div>
                     {isEditing
                         ? <button onClick={this.onPreview}>Preview</button>
