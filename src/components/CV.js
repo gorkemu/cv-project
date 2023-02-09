@@ -14,6 +14,8 @@ class CV extends Component {
         this.onEdit = this.onEdit.bind(this);
         this.addEducation = this.addEducation.bind(this);
         this.addExperience = this.addExperience.bind(this);
+        this.deleteEducation = this.deleteEducation.bind(this);
+        this.deleteExperience = this.deleteExperience.bind(this);
         this.state = {
             personalInfo: {
                 name: '',
@@ -110,6 +112,20 @@ class CV extends Component {
         }))
     }
 
+    deleteEducation(id) {
+        this.setState((prevState) => {
+            const newEducation = prevState.education.filter((educationItem) => educationItem.id !== id);
+            return { ...prevState, education: [...newEducation] }
+        })
+    }
+
+    deleteExperience(id) {
+        this.setState((prevState) => {
+            const newExperience = prevState.experience.filter((experienceItem) => experienceItem.id !== id);
+            return { ...prevState, experience: [...newExperience] }
+        })
+    }
+
     onPreview() {
         this.setState({
             isEditing: false
@@ -138,12 +154,14 @@ class CV extends Component {
                     handleEducationInput={this.handleEducationInput}
                     education={education}
                     isEditing={isEditing}
-                    onAddEducation={this.addEducation} />
+                    onAddEducation={this.addEducation}
+                    onDeleteEducation={this.deleteEducation} />
                 <ExperienceList
                     handleExperienceInput={this.handleExperienceInput}
                     experience={experience}
                     isEditing={isEditing}
-                    onAddExperience={this.addExperience} />
+                    onAddExperience={this.addExperience}
+                    onDeleteExperience={this.deleteExperience} />
                 <div>
                     {isEditing
                         ? <button onClick={this.onPreview}>Preview</button>
