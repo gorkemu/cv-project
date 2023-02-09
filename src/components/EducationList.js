@@ -23,7 +23,8 @@ class EducationList extends Component {
             <section>
                 <h2>Education</h2>
                 {educationItems}
-                <button onClick={onAddEducation}>Add Education</button>
+                {isEditing &&
+                    <button onClick={onAddEducation}>Add Education</button>}
             </section>
         )
     }

@@ -22,7 +22,8 @@ class ExperienceList extends Component {
             <section>
                 <h2>Experience</h2>
                 {experienceItems}
-                <button onClick={onAddExperience}>Add Experience</button>
+                {isEditing &&
+                    <button onClick={onAddExperience}>Add Experience</button>}
             </section>
         )
     }
