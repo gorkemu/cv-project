@@ -7,7 +7,7 @@ class ExperienceList extends Component {
     }
 
     render() {
-        const { handleExperienceInput, experience, isEditing } = this.props;
+        const { handleExperienceInput, experience, isEditing, onAddExperience } = this.props;
         const experienceItems = experience.map((experienceItem) => (
             <Experience
                 key={experienceItem.id}
@@ -21,7 +21,7 @@ class ExperienceList extends Component {
             <section>
                 <h2>Experience</h2>
                 {experienceItems}
-                <button>Add Experience</button>
+                <button onClick={onAddExperience}>Add Experience</button>
             </section>
         )
     }
