@@ -7,14 +7,15 @@ class EducationList extends Component {
     }
 
     render() {
-        const { handleEducationInput, education, isEditing, onAddEducation } = this.props;
+        const { handleEducationInput, education, isEditing, onAddEducation, onDeleteEducation } = this.props;
         const educationItems = education.map((educationItem) => (
             <Education
                 key={educationItem.id}
                 id={educationItem.id}
                 educationItem={educationItem}
                 isEditing={isEditing}
-                handleEducationInput={handleEducationInput} ></Education>
+                handleEducationInput={handleEducationInput}
+                onDeleteEducation={onDeleteEducation}></Education>
         ));
 
 

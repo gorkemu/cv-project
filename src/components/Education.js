@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Education extends Component {
     render() {
-        const { handleEducationInput, educationItem, isEditing, id } = this.props;
+        const { handleEducationInput, educationItem, isEditing, id, onDeleteEducation } = this.props;
         return (
             <section>
                 <div className="block">
@@ -32,6 +32,7 @@ class Education extends Component {
                         }
                     </div>
                 </div>
+                <button onClick={() => onDeleteEducation(id)}>Delete Education</button>
             </section>
         )
     }
