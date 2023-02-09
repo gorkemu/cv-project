@@ -83,7 +83,7 @@ class CV extends Component {
         this.setState((prevState) => ({
             ...prevState,
             education: [
-                ...prevState.education,
+                ...prevState.experience,
                 {
                     id: uniqid(),
                     school: '',
