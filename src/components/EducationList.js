@@ -7,7 +7,7 @@ class EducationList extends Component {
     }
 
     render() {
-        const { handleEducationInput, education, isEditing } = this.props;
+        const { handleEducationInput, education, isEditing, onAddEducation } = this.props;
         const educationItems = education.map((educationItem) => (
             <Education
                 key={educationItem.id}
@@ -22,7 +22,7 @@ class EducationList extends Component {
             <section>
                 <h2>Education</h2>
                 {educationItems}
-                <button>Add Education</button>
+                <button onClick={onAddEducation}>Add Education</button>
             </section>
         )
     }
