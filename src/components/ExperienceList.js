@@ -7,14 +7,15 @@ class ExperienceList extends Component {
     }
 
     render() {
-        const { handleExperienceInput, experience, isEditing, onAddExperience } = this.props;
+        const { handleExperienceInput, experience, isEditing, onAddExperience, onDeleteExperience } = this.props;
         const experienceItems = experience.map((experienceItem) => (
             <Experience
                 key={experienceItem.id}
                 id={experienceItem.id}
                 experienceItem={experienceItem}
                 isEditing={isEditing}
-                handleExperienceInput={handleExperienceInput} ></Experience>
+                handleExperienceInput={handleExperienceInput}
+                onDeleteExperience={onDeleteExperience}></Experience>
         ));
         
         return (

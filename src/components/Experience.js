@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Experience extends Component {
     render() {
-        const { handleExperienceInput, experienceItem, isEditing, id } = this.props;
+        const { handleExperienceInput, experienceItem, isEditing, id, onDeleteExperience } = this.props;
         return (
             <section>
                 <div className="block">
@@ -41,6 +41,7 @@ class Experience extends Component {
                         }
                     </div>
                 </div>
+                <button onClick={() => onDeleteExperience(id)}>Delete Experience</button>
             </section>
         )
     }
