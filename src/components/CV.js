@@ -1,52 +1,40 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Personal from "./Personal";
 import EducationList from "./EducationList";
 import ExperienceList from "./ExperienceList";
 import uniqid from 'uniqid';
 
-class CV extends Component {
-    constructor(props) {
-        super(props);
-        this.handlePersonalInput = this.handlePersonalInput.bind(this);
-        this.handleEducationInput = this.handleEducationInput.bind(this);
-        this.handleExperienceInput = this.handleExperienceInput.bind(this);
-        this.onPreview = this.onPreview.bind(this);
-        this.onEdit = this.onEdit.bind(this);
-        this.addEducation = this.addEducation.bind(this);
-        this.addExperience = this.addExperience.bind(this);
-        this.deleteEducation = this.deleteEducation.bind(this);
-        this.deleteExperience = this.deleteExperience.bind(this);
-        this.state = {
-            personalInfo: {
-                name: '',
-                email: '',
-                phoneNumber: '',
-                address: ''
+const CV = () => {
+    const [cv, setCv] = useState({
+        personalInfo: {
+            name: '',
+            email: '',
+            phoneNumber: '',
+            address: ''
+        },
+        education: [
+            {
+                id: uniqid(),
+                school: '',
+                titleOfStudy: '',
+                graduationDate: ''
             },
-            education: [
-                {
-                    id: uniqid(),
-                    school: '',
-                    titleOfStudy: '',
-                    graduationDate: ''
-                },
-            ],
-            experience: [
-                {
-                    id: uniqid(),
-                    company: '',
-                    position: '',
-                    from: '',
-                    to: ''
-                },
-            ],
-            isEditing: true
-        }
-    }
+        ],
+        experience: [
+            {
+                id: uniqid(),
+                company: '',
+                position: '',
+                from: '',
+                to: ''
+            },
+        ],
+        isEditing: true
+    })
     
-    handlePersonalInput(e) {
+    const handlePersonalInput = (e) => {
         const { name, value } = e.target;
-        this.setState((prevState) => ({
+        setCv((prevState) => ({
             ...prevState,
             personalInfo: {
                 ...prevState.personalInfo,
@@ -55,9 +43,9 @@ class CV extends Component {
         }))
     }
 
-    handleEducationInput (e, id) {
+    const handleEducationInput = (e, id) => {
         const { name, value } = e.target
-        this.setState((prevState) => {
+        setCv((prevState) => {
             const newEducation = prevState.education.map((educationItem) => {
                 if (educationItem.id === id) {
                     return { ...educationItem, [name]: value }
@@ -68,9 +56,9 @@ class CV extends Component {
         })
     }
 
-    handleExperienceInput(e, id) {
+    const handleExperienceInput = (e, id) => {
         const { name, value } = e.target;
-        this.setState((prevState) => {
+        setCv((prevState) => {
             const newExperience = prevState.experience.map((experienceItem) => {
                 if (experienceItem.id === id) {
                     return { ...experienceItem, [name]: value }
@@ -81,8 +69,8 @@ class CV extends Component {
         })
     }
 
-    addEducation() {
-        this.setState((prevState) => ({
+    const addEducation = () => {
+        setCv((prevState) => ({
             ...prevState,
             education: [
                 ...prevState.education,
@@ -96,8 +84,8 @@ class CV extends Component {
         }))
     }
 
-    addExperience() {
-        this.setState((prevState) => ({
+    const addExperience = () => {
+        setCv((prevState) => ({
             ...prevState,
             experience: [
                 ...prevState.experience,
@@ -112,65 +100,63 @@ class CV extends Component {
         }))
     }
 
-    deleteEducation(id) {
-        this.setState((prevState) => {
+    const deleteEducation = (id) => {
+        setCv((prevState) => {
             const newEducation = prevState.education.filter((educationItem) => educationItem.id !== id);
             return { ...prevState, education: [...newEducation] }
         })
     }
 
-    deleteExperience(id) {
-        this.setState((prevState) => {
+    const deleteExperience = (id) => {
+        setCv((prevState) => {
             const newExperience = prevState.experience.filter((experienceItem) => experienceItem.id !== id);
             return { ...prevState, experience: [...newExperience] }
         })
     }
 
-    onPreview() {
-        this.setState({
+    const onPreview = () => {
+        setCv((prevState) => ({
+            ...prevState,
             isEditing: false
-        })
+        }))
     }
 
-    onEdit() {
-        this.setState({
+    const onEdit = () => {
+        setCv((prevState) => ({
+            ...prevState,
             isEditing: true
-        })
+        }))
     }
 
-    render() {
-        const { personalInfo: { name, email, phoneNumber, address }, education, experience, isEditing } = this.state;
-
-        return (
-            <div className="CV">
-                <Personal
-                    handlePersonalInput={this.handlePersonalInput}
-                    name={name}
-                    email={email}
-                    phoneNumber={phoneNumber}
-                    address={address}
-                    isEditing={isEditing} />
-                <EducationList
-                    handleEducationInput={this.handleEducationInput}
-                    education={education}
-                    isEditing={isEditing}
-                    onAddEducation={this.addEducation}
-                    onDeleteEducation={this.deleteEducation} />
-                <ExperienceList
-                    handleExperienceInput={this.handleExperienceInput}
-                    experience={experience}
-                    isEditing={isEditing}
-                    onAddExperience={this.addExperience}
-                    onDeleteExperience={this.deleteExperience} />
-                <div>
-                    {isEditing
-                        ? <button onClick={this.onPreview}>Preview</button>
-                        : <button onClick={this.onEdit}>Edit</button>
-                    }
-                </div>
+    return (
+        <div className="CV">
+            <Personal
+                handlePersonalInput={handlePersonalInput}
+                name={cv.personalInfo.name}
+                email={cv.personalInfo.email}   
+                phoneNumber={cv.personalInfo.phoneNumber}
+                address={cv.personalInfo.address}
+                isEditing={cv.isEditing} />
+            <EducationList
+                handleEducationInput={handleEducationInput}
+                education={cv.education}
+                isEditing={cv.isEditing}
+                onAddEducation={addEducation}
+                onDeleteEducation={deleteEducation} />
+            <ExperienceList
+                handleExperienceInput={handleExperienceInput}
+                experience={cv.experience}
+                isEditing={cv.isEditing}
+                onAddExperience={addExperience}
+                onDeleteExperience={deleteExperience} />
+            <div>
+                {cv.isEditing
+                    ? <button onClick={onPreview}>Preview</button>
+                    : <button onClick={onEdit}>Edit</button>
+                }
             </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default CV;
